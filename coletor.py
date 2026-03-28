@@ -55,6 +55,8 @@ def coletar_dados():
         data_nascimento = obter_data_nascimento()
         cidade_estado = input("Cidade/Estado (Ex: Sorocaba/SP): ").strip()
         genero = input("Gênero Cinematográfico Favorito (Opcional): ").strip().title()
+        dia_mes_aniversario = data_nascimento.strftime("%d-%m")
+
         db = client["sample_mflix"]
         colecao = db["novos_usuarios"]
 
@@ -62,6 +64,7 @@ def coletar_dados():
             "nome": nome,
             "email": email,
             "data_nascimento": data_nascimento,
+            "dia_mes_aniversario": dia_mes_aniversario, # Novo campo adicionado
             "cidade_estado": cidade_estado,
             "genero_favorito": genero if genero else None,
             "data_cadastro": datetime.now()

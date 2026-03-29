@@ -35,7 +35,7 @@ def obter_data_nascimento():
             print("Formato de data inválido. Use exatamente DD/MM/AAAA (ex: 15/05/1990).")
 
 def coletar_dados():
-    print("\n--- BEM-VINDO AO CADASTRO DO CINE-HORÓSCOPO --- \n")
+    print("\n--- BEM-VINDO AO CADASTRO DO CINE-HORÓSCOPO UNIFLIX --- \n")
 
     print("Conectando ao banco de dados...")
     try:
@@ -53,7 +53,7 @@ def coletar_dados():
         nome = obter_nome()
         email = obter_email()
         data_nascimento = obter_data_nascimento()
-        cidade_estado = input("Cidade/Estado (Ex: Sorocaba/SP): ").strip()
+        cidade_pais = input("Cidade, País (Ex: Votorantim, BR): ").strip()
         genero = input("Gênero Cinematográfico Favorito (Opcional): ").strip().title()
         dia_mes_aniversario = data_nascimento.strftime("%d-%m")
 
@@ -64,8 +64,8 @@ def coletar_dados():
             "nome": nome,
             "email": email,
             "data_nascimento": data_nascimento,
-            "dia_mes_aniversario": dia_mes_aniversario, # Novo campo adicionado
-            "cidade_estado": cidade_estado,
+            "dia_mes_aniversario": dia_mes_aniversario,
+            "cidade_pais": cidade_pais,
             "genero_favorito": genero if genero else None,
             "data_cadastro": datetime.now()
         }
